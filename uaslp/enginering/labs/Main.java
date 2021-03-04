@@ -2,6 +2,7 @@ package uaslp.enginering.labs;
 
 import uaslp.enginering.labs.list.Iterator;
 import uaslp.enginering.labs.list.LinkedList;
+import uaslp.enginering.labs.list.Position;
 import uaslp.enginering.labs.list.ReverseIterator;
 
 public class Main {
@@ -9,6 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
         LinkedList lista1 = new LinkedList();
+
 
         lista1.add(1);
         lista1.add(4);
@@ -22,11 +24,11 @@ public class Main {
             int element = it.next(); //regresar el dato y avanzar el iterador
 
             if(element == 3){
-                lista1.insert(10, LinkedList.BEFORE, backupIt);
+                lista1.insert(10,Position.BEFORE, backupIt);
             }
 
             if(element == 7){
-                lista1.insert(15, LinkedList.AFTER, backupIt);
+                lista1.insert(15, Position.AFTER, backupIt);
             }
         }
 

@@ -5,9 +5,6 @@ package uaslp.enginering.labs.list;
  */
 
 public class LinkedList {
-    public static final int BEFORE = 0;
-    public static final int AFTER = 1;
-
     private Node head;
     private Node tail;
     private int size;
@@ -94,13 +91,13 @@ public class LinkedList {
         return new Iterator(head);
     }
 
-    public void insert(int data, int position, Iterator it) {
+    public void insert(int data,Position position, Iterator it) {
         // ¿qué ofrece java para restringir los valores de position a solamente BEFORE y AFTER?
 
         Node newNode = new Node(data);
         Node currentNode = it.getCurrentNode();
 
-        if (position == AFTER) {
+        if (position == Position.AFTER) {
             newNode.setNext(currentNode.getNext());
             newNode.setPrevious(currentNode);
             currentNode.setNext(newNode);
@@ -109,7 +106,7 @@ public class LinkedList {
             } else {
                 tail = newNode;
             }
-        } else if (position == BEFORE) {
+        } else if (position == Position.BEFORE) {
             newNode.setPrevious(currentNode.getPrevious());
             newNode.setNext(currentNode);
             currentNode.setPrevious(newNode);
@@ -118,8 +115,6 @@ public class LinkedList {
             } else {
                 head = newNode;
             }
-        } else {
-            System.out.println("No conozco el valor de position");
         }
         size++;
     }
