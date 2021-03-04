@@ -1,7 +1,21 @@
 package uaslp.enginering.labs.list;
 
-public class Node {
+class Node {
     private Node previous;
+    private Node next;
+    private int data;
+
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
+
+    Node (int data){
+        this.data = data;
+    }
 
     public Node getPrevious() {
         return previous;
@@ -18,6 +32,4 @@ public class Node {
     public void setNext(Node next) {
         this.next = next;
     }
-
-    private Node next;
 }
