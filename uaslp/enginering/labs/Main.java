@@ -5,12 +5,12 @@ import uaslp.enginering.labs.list.*;
 public class Main {
     //Inner classes, Outer classes
     public static void main(String[] args) {
-        int cuenta = LinkedList.getListsCount();
+        int cuenta = LinkedList.getListsCount(); //No entiendo porque esta esto aqui
         //Wrapper classes -> Integer,Float,Character,Boolean
         //Las wrapper classes son "Inmutables"
 
-        List<Integer> lista1 = new LinkedList<>();
-        List<String> lista2 = new LinkedList<>();
+        List<Integer> lista1 = new ArrayList<>(7);
+        List<String> lista2 = new ArrayList<>(5);
 
         lista1.add(6);
         lista1.add(0);
@@ -58,23 +58,6 @@ public class Main {
         itStrings = lista2.getReverseIterator();
         while (itStrings.hasNext()) {
             System.out.println(itStrings.next());
-        }
-
-        it = lista1.getIterator();
-        while(it.hasNext()){
-            int element = it.next(); //regresar el dato y avanzar el iterador
-            if(element == 4){
-                lista1.insert(10, Position.BEFORE,it);
-            }
-            if(element == 6){
-                lista1.insert(15, Position.AFTER, it);
-            }
-        }
-        System.out.println("---------------------");
-        it= lista1.getIterator();
-        while (it.hasNext()) {
-            int element = it.next();
-            System.out.println("Dato: " + element);
         }
     }
 }

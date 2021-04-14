@@ -40,7 +40,7 @@ public class LinkedList<G> implements List<G> {
         private Node<G> currentNode;
 
         public ForwardIterator() {
-            this.currentNode = head;
+            this.currentNode=head;
         }
 
         public ForwardIterator(ForwardIterator iterator){
@@ -69,7 +69,6 @@ public class LinkedList<G> implements List<G> {
         public ReverseIterator() {
             this.currentNode = tail;
         }
-
 
         public boolean hasNext(){
             return currentNode != null;

@@ -1,15 +1,20 @@
 package uaslp.enginering.labs.list;
 
 public class ArrayList<H> implements List<H> {
-    private Object array[];
+    private Object[] array;
     private int size;
+    private final int maxsize;
 
-    public ArrayList(){
-        this.array = new Object[2];
+    public ArrayList(int size){
+        this.array = new Object[size];
+        this.maxsize = size;
     }
     @Override
     public void add(H data) {
-        this.array[size++] = data;
+        if (size<maxsize)
+            this.array[size++] = data;
+        else
+            System.out.println("El arreglo ya esta lleno");
     }
 
     @Override
@@ -19,7 +24,30 @@ public class ArrayList<H> implements List<H> {
 
     @Override
     public void delete(int index) {
-
+        for (int i=index;(i+1)<size;i++){
+            array[i]=array[i+1];
+        }
+        size--;
+    }
+    public class ForwardIterator implements Iterator<H> {
+        private int indice;
+        public boolean hasNext(){
+            return indice < size;
+        }
+        public H next(){
+            indice++;
+            return (H)array[indice-1];
+        }
+    }
+    public class ReverseIterator implements Iterator<H> {
+        private int indice=size-1;
+        public boolean hasNext(){
+            return indice >= 0;
+        }
+        public H next(){
+            indice--;
+            return (H)array[indice+1];
+        }
     }
 
     @Override
@@ -29,16 +57,16 @@ public class ArrayList<H> implements List<H> {
 
     @Override
     public Iterator<H> getIterator() {
-        return null;
+        return new ForwardIterator();
     }
 
     @Override
-    public void insert(H data, Position position, Iterator<H> it) {
-
-    }
 
     @Override
     public Iterator<H> getReverseIterator() {
-        return null;
+        return new ReverseIterator();
+    }
+    public void insert(H data, Position position, Iterator<H> it) {
+
     }
 }
