@@ -1,6 +1,9 @@
-package uaslp.enginering.labs;
+package src.uaslp.enginering.labs;
 
-import uaslp.enginering.labs.list.*;
+import src.uaslp.enginering.labs.list.ArrayList;
+import src.uaslp.enginering.labs.list.Iterator;
+import src.uaslp.enginering.labs.list.LinkedList;
+import src.uaslp.enginering.labs.list.List;
 
 public class Main {
     //Inner classes, Outer classes

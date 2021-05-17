@@ -1,4 +1,4 @@
-package uaslp.enginering.labs.list;
+package src.uaslp.enginering.labs.list;
 
 public interface List <T> {
     void add(T data);

@@ -1,4 +1,4 @@
-package uaslp.enginering.labs.list;
+package src.uaslp.enginering.labs.list;
 
 public class ArrayList<H> implements List<H> {
     private Object array[];

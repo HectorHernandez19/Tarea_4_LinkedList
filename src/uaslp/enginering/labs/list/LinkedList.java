@@ -1,4 +1,4 @@
-package uaslp.enginering.labs.list;
+package src.uaslp.enginering.labs.list;
 /**
  * Lista doblemente ligada
  */
