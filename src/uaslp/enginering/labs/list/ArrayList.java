@@ -3,21 +3,18 @@ package src.uaslp.enginering.labs.list;
 public class ArrayList<H> implements List<H> {
     private Object array[];
     private int size;
+    private int maxsize;
 
     public ArrayList(int size){
-        this.array = new Object[2];
-        //this.maxsize = size;
-    }
-
-    public ArrayList() {
-
+        this.array = new Object[10];
+        this.maxsize = size;
     }
 
     @Override
     public void add(H data) {
-        //if (size<maxsize)
+        if (size<maxsize)
             this.array[size++] = data;
-        //else
+        else
             System.out.println("El arreglo ya esta lleno");
     }
 

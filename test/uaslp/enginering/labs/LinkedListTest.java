@@ -13,7 +13,7 @@ public class LinkedListTest {
         //Given:
 
         //When:
-        ArrayList<Integer> lista = new ArrayList<>();
+        ArrayList<Integer> lista = new ArrayList<>(10);
 
         //Then:
         // Aserciones -> asserts
