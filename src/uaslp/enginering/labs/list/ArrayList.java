@@ -20,16 +20,22 @@ public class ArrayList<H> implements List<H> {
 
     @Override
     public H get(int index) {
+        if(index>=array.length){
+            throw new MyNullPointerException();
+        }
         return (H)this.array[index];
     }
 
     @Override
     public void delete(int index) {
-        for (int i=index;(i+1)<size;i++){
-            array[i]=array[i+1];
+        if(array.length - (index+1) >= 0){
+            System.arraycopy(this.array, index + 1, this.array, index, array.length - (index + 1));
+        }else{
+            throw new MyIndexOutOfBoundsException();
         }
         size--;
     }
+
     public class ForwardIterator implements Iterator<H> {
         private int indice;
         public boolean hasNext(){
@@ -67,6 +73,6 @@ public class ArrayList<H> implements List<H> {
         return new ReverseIterator();
     }
     public void insert(H data, Position position, Iterator<H> it) {
-
+        System.out.println(" ");//Aun no implemento esto, pero lo hare en cuanto pueda
     }
 }

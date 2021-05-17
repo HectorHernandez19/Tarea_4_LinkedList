@@ -7,7 +7,7 @@ import uaslp.enginering.labs.list.List;
 public class Main {
     //Inner classes, Outer classes
     public static void main(String[] args) {
-        int cuenta = LinkedList.getListsCount(); //No entiendo porque esta esto aqui
+        //int cuenta = LinkedList.getListsCount(); //No entiendo porque esta esto aqui
         //Wrapper classes -> Integer,Float,Character,Boolean
         //Las wrapper classes son "Inmutables"
 

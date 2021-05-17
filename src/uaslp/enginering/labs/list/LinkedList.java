@@ -28,14 +28,14 @@ public class LinkedList<G> implements List<G> {
     private Node<G> head;
     private int size;
 
-    private static int listsCount = 0;
+    /*private static int listsCount = 0;
 
     public LinkedList() {
         listsCount ++;
     }
     public static int getListsCount(){
         return listsCount;
-    }
+    }*/
     public class ForwardIterator implements Iterator<G> {
         private Node<G> currentNode;
 
@@ -108,24 +108,22 @@ public class LinkedList<G> implements List<G> {
         Node<G> currentNode = head;
         int currentIndex = 0;
 
-        if (index < 0 || index >= size) {//Por si el elemento no esta en el rango de elementos
-            System.out.println("El elemento no se encuentra en la lista actual");
-            return null;
-        }
+        if (index < 0 || index >= size) //Por si el elemento no esta en el rango de elementos
+            throw new MyNullPointerException();
         while (currentIndex < index) {
             currentNode = currentNode.next;
             currentIndex++;
         }
         return currentNode.data;
     }
+
     @Override
     public void delete(int index) {
         Node<G> currentNode = head;
         int currentIndex = 0;
 
         if (index < 0 || index >= size) {
-            System.out.println("El elemento no se encuentra en la lista actual");
-            return;
+            throw new MyIndexOutOfBoundsException();
         }
 
         size--;
@@ -133,28 +131,23 @@ public class LinkedList<G> implements List<G> {
         if (size == 0) {
             head = null;
             tail = null;
-            return;
-        }
-
-        if (index == 0) {
+        }else if (index == 0) {
             head = head.next;
             head.previous=null;
-            return;
-        }
-
-        if (index == size-1) {
+        }else if (index == size) {
             tail = tail.previous;
             tail.next = null;
-            return;
         }
-
-        while (currentIndex < index) {
-            currentNode = currentNode.next;
-            currentIndex++;
+        if(index > 0 && index < size){
+            while (currentIndex < index) {
+                currentNode = currentNode.next;
+                currentIndex++;
+            }
+            currentNode.previous.next = currentNode.next;
+            currentNode.next.previous = currentNode.previous;
         }
-        currentNode.previous.next = currentNode.next;
-        currentNode.next.previous = currentNode.previous;
     }
+
     @Override
     public Iterator<G> getIterator() {
         return new ForwardIterator();
@@ -164,7 +157,7 @@ public class LinkedList<G> implements List<G> {
         // ¿qué ofrece java para restringir los valores de position a solamente BEFORE y AFTER?
 
         Node<G> newNode = new Node<>(data);
-        Node<G> currentNode = ((ForwardIterator)it).getCurrentNode().previous;
+        Node<G> currentNode = ((ForwardIterator)it).getCurrentNode();
 
         if (position == Position.AFTER) {
             newNode.next = currentNode.next;
@@ -184,8 +177,6 @@ public class LinkedList<G> implements List<G> {
             } else {
                 head = newNode;
             }
-        }else {
-            System.out.println("No conozco el valor de la position");
         }
         size++;
     }
@@ -194,7 +185,8 @@ public class LinkedList<G> implements List<G> {
         return size;
     }
 
-    public ReverseIterator getReverseIterator() {
+    @Override
+    public Iterator<G> getReverseIterator() {
         return new ReverseIterator();
     }
 }
