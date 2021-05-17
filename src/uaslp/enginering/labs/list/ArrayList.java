@@ -1,21 +1,21 @@
-package src.uaslp.enginering.labs.list;
+package uaslp.enginering.labs.list;
 
 public class ArrayList<H> implements List<H> {
     private Object array[];
     private int size;
-    private int maxsize;
 
-    public ArrayList(int size){
-        this.array = new Object[10];
-        this.maxsize = size;
+    public ArrayList(){
+        this.array = new Object[4];
     }
 
     @Override
     public void add(H data) {
-        if (size<maxsize)
-            this.array[size++] = data;
-        else
-            System.out.println("El arreglo ya esta lleno");
+        if (size == array.length){
+            Object []oldArray = array;
+            array = new Object[array.length*2];
+            System.arraycopy(oldArray, 0, array, 0, oldArray.length);
+        }
+        this.array[size++] = data;
     }
 
     @Override

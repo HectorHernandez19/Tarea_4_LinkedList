@@ -1,9 +1,8 @@
-package src.uaslp.enginering.labs;
+package uaslp.enginering.labs;
 
-import src.uaslp.enginering.labs.list.ArrayList;
-import src.uaslp.enginering.labs.list.Iterator;
-import src.uaslp.enginering.labs.list.LinkedList;
-import src.uaslp.enginering.labs.list.List;
+import uaslp.enginering.labs.list.Iterator;
+import uaslp.enginering.labs.list.LinkedList;
+import uaslp.enginering.labs.list.List;
 
 public class Main {
     //Inner classes, Outer classes
@@ -12,8 +11,8 @@ public class Main {
         //Wrapper classes -> Integer,Float,Character,Boolean
         //Las wrapper classes son "Inmutables"
 
-        List<Integer> lista1 = new ArrayList<>(7);
-        List<String> lista2 = new ArrayList<>(5);
+        List<Integer> lista1 = new LinkedList<>();
+        List<String> lista2 = new LinkedList<>();
 
         lista1.add(6);
         lista1.add(0);
