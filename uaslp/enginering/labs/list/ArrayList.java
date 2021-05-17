@@ -1,19 +1,23 @@
 package uaslp.enginering.labs.list;
 
 public class ArrayList<H> implements List<H> {
-    private Object[] array;
+    private Object array[];
     private int size;
-    private final int maxsize;
 
     public ArrayList(int size){
-        this.array = new Object[size];
-        this.maxsize = size;
+        this.array = new Object[2];
+        //this.maxsize = size;
     }
+
+    public ArrayList() {
+
+    }
+
     @Override
     public void add(H data) {
-        if (size<maxsize)
+        //if (size<maxsize)
             this.array[size++] = data;
-        else
+        //else
             System.out.println("El arreglo ya esta lleno");
     }
 
@@ -62,7 +66,6 @@ public class ArrayList<H> implements List<H> {
 
     @Override
 
-    @Override
     public Iterator<H> getReverseIterator() {
         return new ReverseIterator();
     }
